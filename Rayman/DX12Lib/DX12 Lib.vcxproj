@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Editor Debug|x64">
+      <Configuration>Editor Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Play Debug|x64">
+      <Configuration>Play Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Play Release|x64">
+      <Configuration>Play Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{2C24FA91-B292-48DD-969E-620F49E4B51E}</ProjectGuid>
+    <RootNamespace>DX12Lib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <ProjectName>DX12Lib</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">
+    <IncludePath>$(ProjectDir)Source/Source/;$(ProjectDir)Source/Headers/;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)Include\DX12Lib\lib\$(Configuration)</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">
+    <IncludePath>$(ProjectDir)Source/Source/;$(ProjectDir)Source/Headers/;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)Include\DX12Lib\lib\$(Configuration)</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">
+    <IncludePath>$(ProjectDir)Source/Source/;$(ProjectDir)Source/Headers/;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)Include\DX12Lib\lib\$(Configuration)</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>DX12LibPCH.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>_MBCS;USE_DIRECTX12;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Include\DirectXTex\include;$(SolutionDir)\Include\imgui-docking;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <FxCompile>
+      <ShaderModel>5.1</ShaderModel>
+      <VariableName>%(Filename)</VariableName>
+      <HeaderFileOutput>$(ProjectDir)Include\%(Filename).h</HeaderFileOutput>
+      <ObjectFileOutput />
+    </FxCompile>
+    <Lib>
+      <AdditionalDependencies>DirectXTex-d.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Include\DirectXTex\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Source\Headers\*" "$(OutDir)..\..\include\" /E /Y /R /I </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>DX12LibPCH.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>_MBCS;USE_DIRECTX12;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Include\DirectXTex\include;$(SolutionDir)\Include\imgui-docking;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <FxCompile>
+      <ShaderModel>5.1</ShaderModel>
+      <VariableName>%(Filename)</VariableName>
+      <HeaderFileOutput>$(ProjectDir)Include\%(Filename).h</HeaderFileOutput>
+      <ObjectFileOutput>
+      </ObjectFileOutput>
+    </FxCompile>
+    <Lib>
+      <AdditionalDependencies>DirectXTex-d.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Include\DirectXTex\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Source\Headers\*" "$(OutDir)..\..\include\" /E /Y /R /I </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>DX12LibPCH.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>_MBCS;USE_DIRECTX12;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Include\DirectXTex\include;$(SolutionDir)\Include\imgui-docking;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <FxCompile>
+      <VariableName>%(Filename)</VariableName>
+    </FxCompile>
+    <FxCompile>
+      <HeaderFileOutput>$(ProjectDir)Include\%(Filename).h</HeaderFileOutput>
+      <ObjectFileOutput>
+      </ObjectFileOutput>
+    </FxCompile>
+    <Lib>
+      <AdditionalDependencies>DirectXTex.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Include\DirectXTex\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Source\Headers\*" "$(OutDir)..\..\include\" /E /Y /R /I </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="DX12Resource.h" />
+    <ClInclude Include="Source\Headers\DX12Graphics.h" />
+    <ClInclude Include="Source\Headers\Buffer.h" />
+    <ClInclude Include="Source\Headers\ByteAddressBuffer.h" />
+    <ClInclude Include="Source\Headers\CommandList.h" />
+    <ClInclude Include="Source\Headers\CommandQueue.h" />
+    <ClInclude Include="Source\Headers\ConstantBuffer.h" />
+    <ClInclude Include="Source\Headers\d3dx12.h" />
+    <ClInclude Include="Source\Headers\Defines.h" />
+    <ClInclude Include="Source\Headers\DescriptorAllocation.h" />
+    <ClInclude Include="Source\Headers\DescriptorAllocator.h" />
+    <ClInclude Include="Source\Headers\DescriptorAllocatorPage.h" />
+    <ClInclude Include="Source\Headers\DX12LibPCH.h" />
+    <ClInclude Include="Source\Headers\DynamicDescriptorHeap.h" />
+    <ClInclude Include="Source\Headers\Events.h" />
+    <ClInclude Include="Source\Headers\DX12Application.h" />
+    <ClInclude Include="Source\Headers\GenerateMipsPSO.h" />
+    <ClInclude Include="Source\Headers\GUI.h" />
+    <ClInclude Include="Source\Headers\Helpers.h" />
+    <ClInclude Include="Source\Headers\HighResolutionClock.h" />
+    <ClInclude Include="Source\Headers\imstb_rectpack.h" />
+    <ClInclude Include="Source\Headers\imstb_textedit.h" />
+    <ClInclude Include="Source\Headers\imstb_truetype.h" />
+    <ClInclude Include="Source\Headers\IndexBuffer.h" />
+    <ClInclude Include="Source\Headers\KeyCodes.h" />
+    <ClInclude Include="Source\Headers\DX12Mesh.h" />
+    <ClInclude Include="Source\Headers\RenderTarget.h" />
+    <ClInclude Include="Source\Headers\DX12Resource.h" />
+    <ClInclude Include="Source\Headers\ResourceStateTracker.h" />
+    <ClInclude Include="Source\Headers\RootSignature.h" />
+    <ClInclude Include="Source\Headers\StructuredBuffer.h" />
+    <ClInclude Include="Source\Headers\DX12Texture.h" />
+    <ClInclude Include="Source\Headers\TextureUsage.h" />
+    <ClInclude Include="Source\Headers\UploadBuffer.h" />
+    <ClInclude Include="Source\Headers\VertexBuffer.h" />
+    <ClInclude Include="Source\Headers\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Headers\GenerateMips_CS.inc" />
+    <None Include="Source\Headers\ImGUI_PS.inc" />
+    <None Include="Source\Headers\ImGUI_VS.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Source\DX12Graphics.cpp" />
+    <ClCompile Include="Source\Source\Buffer.cpp" />
+    <ClCompile Include="Source\Source\ByteAddressBuffer.cpp" />
+    <ClCompile Include="Source\Source\CommandList.cpp" />
+    <ClCompile Include="Source\Source\CommandQueue.cpp" />
+    <ClCompile Include="Source\Source\ConstantBuffer.cpp" />
+    <ClCompile Include="Source\Source\DescriptorAllocation.cpp" />
+    <ClCompile Include="Source\Source\DescriptorAllocator.cpp" />
+    <ClCompile Include="Source\Source\DescriptorAllocatorPage.cpp" />
+    <ClCompile Include="Source\Source\DirectXTex\DDSTextureLoader12.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\Source\DirectXTex\WICTextureLoader12.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\Source\DX12LibPCH.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\Source\DynamicDescriptorHeap.cpp" />
+    <ClCompile Include="Source\Source\DX12Application.cpp" />
+    <ClCompile Include="Source\Source\GenerateMipsPSO.cpp" />
+    <ClCompile Include="Source\Source\GUI.cpp" />
+    <ClCompile Include="Source\Source\HighResolutionClock.cpp" />
+    <ClCompile Include="Source\Source\IndexBuffer.cpp" />
+    <ClCompile Include="Source\Source\DX12Mesh.cpp" />
+    <ClCompile Include="Source\Source\RenderTarget.cpp" />
+    <ClCompile Include="Source\Source\DX12Resource.cpp" />
+    <ClCompile Include="Source\Source\ResourceStateTracker.cpp" />
+    <ClCompile Include="Source\Source\RootSignature.cpp" />
+    <ClCompile Include="Source\Source\StructuredBuffer.cpp" />
+    <ClCompile Include="Source\Source\DX12Texture.cpp" />
+    <ClCompile Include="Source\Source\UploadBuffer.cpp" />
+    <ClCompile Include="Source\Source\VertexBuffer.cpp" />
+    <ClCompile Include="Source\Source\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DX12 Lib.rc">
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">$(OutDir)%(Filename).res</ResourceOutputFileName>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">$(OutDir)%(Filename).res</ResourceOutputFileName>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Source\Resources\Icon\app_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Source\Resources\Shaders\ImGUI_PS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">5.1</ShaderModel>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="Source\Resources\Shaders\ImGUI_VS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">5.1</ShaderModel>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+    </FxCompile>
+    <FxCompile Include="Source\Resources\Shaders\PixelShader.hlsl">
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">5.1</ShaderModel>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">%(Filename)</VariableName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">Pixel</ShaderType>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">
+      </ObjectFileOutput>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">%(Filename)</VariableName>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">5.1</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">5.1</ShaderModel>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">
+      </ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">
+      </ObjectFileOutput>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Source\Resources\Shaders\VertexShader.hlsl">
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">
+      </ObjectFileOutput>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">5.1</ShaderModel>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">%(Filename)</VariableName>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">$(SolutionDir)Include\DX12Lib\include\Shaders\%(Filename).h</HeaderFileOutput>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">5.1</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">5.1</ShaderModel>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">
+      </ObjectFileOutput>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">
+      </ObjectFileOutput>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">Vertex</ShaderType>
+    </FxCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Editor Debug|x64">
+      <Configuration>Editor Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Play Debug|x64">
+      <Configuration>Play Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Play Release|x64">
+      <Configuration>Play Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Components\CameraController.cpp" />
+    <ClCompile Include="src\Components\EnemyController.cpp" />
+    <ClCompile Include="src\Components\FlyingFistComponent.cpp" />
+    <ClCompile Include="src\Components\ParalaxScrolling.cpp" />
+    <ClCompile Include="src\Components\PickupComponent.cpp" />
+    <ClCompile Include="src\Components\Player.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\SceneLibrary.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Components\CameraController.h" />
+    <ClInclude Include="src\Components\EnemyController.h" />
+    <ClInclude Include="src\Components\FlyingFistComponent.h" />
+    <ClInclude Include="src\Components\ParalaxScrolling.h" />
+    <ClInclude Include="src\Components\PickupComponent.h" />
+    <ClInclude Include="src\Components\Player.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\SceneLibrary.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Textures\TEst.bmp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{31593A19-3804-46CA-B22E-E06F482C2CB6}</ProjectGuid>
+    <RootNamespace>Game</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">
+    <OutDir>$(SolutionDir)build\$(ProjectName)\bin\</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <TargetName>$(ProjectName) $(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">
+    <OutDir>$(SolutionDir)build\$(ProjectName)\bin\</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <TargetName>$(ProjectName) $(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">
+    <OutDir>$(SolutionDir)build\$(ProjectName)\bin\</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <TargetName>$(ProjectName) $(Configuration)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Editor Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)Engine\src;$(SolutionDir)Include\Box2D\include;$(SolutionDir)Include\eventpp\include;$(SolutionDir)Include\imgui-docking;$(SolutionDir)Include\imgui-sfml;$(SolutionDir)Include\rttr\include;$(SolutionDir)Include\SFML\include;$(SolutionDir)Include\spdlog\include;$(SolutionDir)Include\DirectXTex\include;$(SolutionDir)Include\DX12Lib\include;%(AdditionalDependencies)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <PreprocessorDefinitions>USE_DIRECTX12;EDITOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnablePREfast>true</EnablePREfast>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;DX12Lib.lib;Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Include\DX12Lib\lib\$(Configuration);$(SolutionDir)Include\DX12Lib\lib\$(Configuration);$(SolutionDir)build\Engine\$(Configuration);$(SolutionDir)Include\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)Assets\*" "$(OutDir)..\Assets\" /E /Y /R /I 
+
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Play Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)Engine\src;$(SolutionDir)Include\Box2D\include;$(SolutionDir)Include\eventpp\include;$(SolutionDir)Include\imgui-docking;$(SolutionDir)Include\imgui-sfml;$(SolutionDir)Include\rttr\include;$(SolutionDir)Include\SFML\include;$(SolutionDir)Include\spdlog\include;$(SolutionDir)Include\DirectXTex\include;$(SolutionDir)Include\DX12Lib\include;%(AdditionalDependencies)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>USE_DIRECTX12;EDITOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnablePREfast>true</EnablePREfast>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;DX12Lib.lib;Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Include\DX12Lib\lib\$(Configuration);$(SolutionDir)Include\DX12Lib\lib\$(Configuration);$(SolutionDir)build\Engine\$(Configuration);$(SolutionDir)Include\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)Assets\*" "$(OutDir)..\Assets\" /E /Y /R /I 
+
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Play Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Include\Box2D\include;$(ProjectDir)src;$(SolutionDir)Engine\src;$(SolutionDir)Include\eventpp\include;$(SolutionDir)Include\imgui-docking;$(SolutionDir)Include\imgui-sfml;$(SolutionDir)Include\rttr\include;$(SolutionDir)Include\SFML\include;$(SolutionDir)Include\spdlog\include;$(SolutionDir)Include\DirectXTex\include;$(SolutionDir)Include\DX12Lib\include;%(AdditionalDependencies)</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>USE_DIRECTX12;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnablePREfast>true</EnablePREfast>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;DX12Lib.lib;Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Include\DX12Lib\lib\$(Configuration);$(SolutionDir)build\DX12Lib\$(Configuration);$(SolutionDir)build\Engine\$(Configuration);$(SolutionDir)Include\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)Assets\*" "$(OutDir)..\Assets\" /E /Y /R /I 
+
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

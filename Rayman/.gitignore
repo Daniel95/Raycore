@@ -1,0 +1,60 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+#Y2019A-Y2-PR-RM-2 Ignore
+
+#Directories
+#Everything inside these directories will be ignored for server operations
+bin/*
+obj/*
+.vs/*
+build/*
+
+#Files
+#All files with these extension will be ignored for server operations
+*.bin
+*.log
+*.exe
+*.pdb
+*.tlog
+*.ipdb
+*.iobj
+*.idb
+*.pch
+*.ilk
+*.vcxproj.user
+imgui.ini
+
+PixelShader.h
+VertexShader.h
+Include/DX12Lib/*

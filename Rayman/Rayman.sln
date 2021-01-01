@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj", "{31593A19-3804-46CA-B22E-E06F482C2CB6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7AE39CB8-8100-4E73-9EFF-06811A8F24BA} = {7AE39CB8-8100-4E73-9EFF-06811A8F24BA}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{7AE39CB8-8100-4E73-9EFF-06811A8F24BA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2C24FA91-B292-48DD-969E-620F49E4B51E} = {2C24FA91-B292-48DD-969E-620F49E4B51E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DX12Lib", "DX12Lib\DX12 Lib.vcxproj", "{2C24FA91-B292-48DD-969E-620F49E4B51E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{9ABB8929-2FDE-4534-BF4B-7F42D2CC2860}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Editor Debug|x64 = Editor Debug|x64
+		Play Debug|x64 = Play Debug|x64
+		Play Release|x64 = Play Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31593A19-3804-46CA-B22E-E06F482C2CB6}.Editor Debug|x64.ActiveCfg = Editor Debug|x64
+		{31593A19-3804-46CA-B22E-E06F482C2CB6}.Editor Debug|x64.Build.0 = Editor Debug|x64
+		{31593A19-3804-46CA-B22E-E06F482C2CB6}.Play Debug|x64.ActiveCfg = Play Debug|x64
+		{31593A19-3804-46CA-B22E-E06F482C2CB6}.Play Debug|x64.Build.0 = Play Debug|x64
+		{31593A19-3804-46CA-B22E-E06F482C2CB6}.Play Release|x64.ActiveCfg = Play Release|x64
+		{31593A19-3804-46CA-B22E-E06F482C2CB6}.Play Release|x64.Build.0 = Play Release|x64
+		{7AE39CB8-8100-4E73-9EFF-06811A8F24BA}.Editor Debug|x64.ActiveCfg = Editor Debug|x64
+		{7AE39CB8-8100-4E73-9EFF-06811A8F24BA}.Editor Debug|x64.Build.0 = Editor Debug|x64
+		{7AE39CB8-8100-4E73-9EFF-06811A8F24BA}.Play Debug|x64.ActiveCfg = Play Debug|x64
+		{7AE39CB8-8100-4E73-9EFF-06811A8F24BA}.Play Debug|x64.Build.0 = Play Debug|x64
+		{7AE39CB8-8100-4E73-9EFF-06811A8F24BA}.Play Release|x64.ActiveCfg = Play Release|x64
+		{7AE39CB8-8100-4E73-9EFF-06811A8F24BA}.Play Release|x64.Build.0 = Play Release|x64
+		{2C24FA91-B292-48DD-969E-620F49E4B51E}.Editor Debug|x64.ActiveCfg = Editor Debug|x64
+		{2C24FA91-B292-48DD-969E-620F49E4B51E}.Editor Debug|x64.Build.0 = Editor Debug|x64
+		{2C24FA91-B292-48DD-969E-620F49E4B51E}.Play Debug|x64.ActiveCfg = Play Debug|x64
+		{2C24FA91-B292-48DD-969E-620F49E4B51E}.Play Debug|x64.Build.0 = Play Debug|x64
+		{2C24FA91-B292-48DD-969E-620F49E4B51E}.Play Release|x64.ActiveCfg = Play Release|x64
+		{2C24FA91-B292-48DD-969E-620F49E4B51E}.Play Release|x64.Build.0 = Play Release|x64
+		{9ABB8929-2FDE-4534-BF4B-7F42D2CC2860}.Editor Debug|x64.ActiveCfg = Editor Debug|x64
+		{9ABB8929-2FDE-4534-BF4B-7F42D2CC2860}.Editor Debug|x64.Build.0 = Editor Debug|x64
+		{9ABB8929-2FDE-4534-BF4B-7F42D2CC2860}.Play Debug|x64.ActiveCfg = Play Debug|x64
+		{9ABB8929-2FDE-4534-BF4B-7F42D2CC2860}.Play Debug|x64.Build.0 = Play Debug|x64
+		{9ABB8929-2FDE-4534-BF4B-7F42D2CC2860}.Play Release|x64.ActiveCfg = Play Release|x64
+		{9ABB8929-2FDE-4534-BF4B-7F42D2CC2860}.Play Release|x64.Build.0 = Play Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95061725-1552-4E42-B02A-7771B032EC0B}
+	EndGlobalSection
+EndGlobal
