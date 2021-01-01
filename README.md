@@ -7,3 +7,9 @@ Credits:
 Engine Programming: Daniel, Luke,
 Graphics Programming: Max,
 Gameplay Programming: Thijs
+
+Features:
+
+Object Oriented ECS
+IMGUI scene editor
+DX12 renderer
